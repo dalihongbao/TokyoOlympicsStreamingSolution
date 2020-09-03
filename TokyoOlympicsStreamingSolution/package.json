@@ -1,0 +1,16 @@
+{
+  "name": "olympix",
+  "version": "1.0.0",
+  "description": "Cloud programming",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bootstrap": "^4.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kenley Walter, Corey Linford, Yifeng Chen",
+  "license": "ISC"
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Olympics Video Streaming</title>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+    <link href="/assets/css/main.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+    <noscript>
+        <link href="/assets/css/noscript.css" rel="stylesheet"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="/index">Tokyo 2020</a></h1>
+        <nav id="nav">
+            <ul>
+                <li class="special">
+                    <a class="menuToggle" href="#menu" th:if="${loggedIn}"><span
+                        th:text="'Hello, ' + ${username} + '!'"></span></a>
+                    <a class="menuToggle" href="#menu" th:unless="${loggedIn}"><span>Menu</span></a>
+                    <div id="menu">
+                        <ul>
+                            <li><a href="/index">Home</a></li>
+                            <li><a href="/live">Live Streaming</a></li>
+                            <li><a href="/video">Video gallery</a></li>
+                            <li th:unless="${loggedIn}"><a href="/sign_up">Sign Up</a></li>
+                            <li th:unless="${loggedIn}"><a href="/login">Log In</a></li>
+                            <li th:if="${loggedIn}"><a href="/index" onclick="logout()">Log out</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <article id="main">
+        <header>
+            <h2>Live Streaming</h2>
+        </header>
+        <section class="wrapper style5">
+            <ul class="actions fit">
+                <li></li>
+                <li>
+                    <div class="align-center">
+                        <!-- USER IS LOGGED IN -->
+                        <div th:if="${loggedIn}">
+                            <video-js class="video-js" controls height="540" id="unisa_ad" preload="auto" width="960">
+                                <source src="https://d2366f1q8qq5ss.cloudfront.net/hls/olympics-stream.m3u8"
+                                        type="application/x-mpegURL">
+                            </video-js>
+                        </div>
+                        <!-- NOT LOGGED IN -->
+                        <div th:unless="${loggedIn}">
+                            <h3>You're not currently logged in</h3>
+                            <br>
+                            <h5>Please sign in or sign up to continue</h5>
+                            <br>
+                            <ul class="actions stacked">
+                                <li><a class="button fit primary" href="/login">Sign In</a></li>
+                                <li><a class="button fit" href="/sign_up">Sign Up</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li></li>
+            </ul>
+        </section>
+    </article>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a class="icon brands fa-twitter" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><span class="label">Twitter</span></a></li>
+            <li><a class="icon brands fa-facebook-f" href="#"><span class="label">Facebook</span></a></li>
+            <li><a class="icon brands fa-instagram" href="#"><span class="label">Instagram</span></a></li>
+            <li><a class="icon brands fa-dribbble" href="#"><span class="label">Dribbble</span></a></li>
+            <li><a class="icon solid fa-envelope" href="#"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Copyright 2020</li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="rest-functions.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/video.js/dist/video.js"></script>
+<script src="https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.js"></script>
+
+<script>
+    const player = videojs('unisa_ad');
+</script>
+</html>

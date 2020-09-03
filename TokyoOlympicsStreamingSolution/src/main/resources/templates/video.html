@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Videos</title>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+    <link href="assets/css/main.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+    <noscript>
+        <link href="assets/css/noscript.css" rel="stylesheet"/>
+    </noscript>
+</head>
+<body class="is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="index">Tokyo 2020</a></h1>
+        <nav id="nav">
+            <ul>
+                <li class="special">
+                    <a class="menuToggle" href="#menu" th:if="${loggedIn}"><span
+                        th:text="'Hello, ' + ${username} + '!'"></span></a>
+                    <a class="menuToggle" href="#menu" th:unless="${loggedIn}"><span>Menu</span></a>
+                    <div id="menu">
+                        <ul>
+                            <li><a href="/index">Home</a></li>
+                            <li><a href="/live">Live Streaming</a></li>
+                            <li><a href="/video">Video gallery</a></li>
+                            <li th:unless="${loggedIn}"><a href="/sign_up">Sign Up</a></li>
+                            <li th:unless="${loggedIn}"><a href="/login">Log In</a></li>
+                            <li th:if="${loggedIn}"><a href="/index" onclick="logout()">Log out</a></li>
+                        </ul>
+                    </div>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <article id="main">
+        <header>
+            <h2>Video Gallery</h2>
+        </header>
+        <section class="wrapper style5">
+            <div class="inner">
+                <section>
+                    <h2>Swimming</h2>
+                    <video-js class="video-js" controls height="540" id="swimming" poster="images/swimming.jpg"
+                              preload="auto"
+                              width="960">
+                        <source src="https://d2366f1q8qq5ss.cloudfront.net/swimming/swimming.m3u8"
+                                type="application/x-mpegURL">
+                    </video-js>
+                    <br>
+                    <p>
+                        <b>Michael Phelps wins 15th Gold - Men's 100m Butterfly</b>
+                        <br><br>
+                        Phelps was followed by a joint silver place to both Chad le Clos (South Africa) and Evgeny
+                        Korotyshkin (Russian Fed.).
+                    </p>
+                    <hr/>
+                    <header>
+                        <h2>Curling</h2>
+                        <video-js class="video-js" controls height="540" id="curling" poster="images/curling.jpg"
+                                  preload="auto"
+                                  width="960">
+                            <source src="https://d2366f1q8qq5ss.cloudfront.net/curling/curling.m3u8"
+                                    type="application/x-mpegURL">
+                        </video-js>
+                        <br>
+                        <p>
+                            <b>Curling - Men's Semi-Final - Sweden v Great Britain </b>
+                            <br><br>
+                            Highlights from the Ice Cube Curling Centre of the Men's Curling Semi-Final match between
+                            Sweden and Great Britain
+                        </p>
+                    </header>
+                    <hr/>
+                    <h2>Speed Skating</h2>
+                    <video-js class="video-js" controls height="540" id="skating" poster="images/skating.jpg"
+                              preload="auto"
+                              width="960">
+                        <source src="https://d2366f1q8qq5ss.cloudfront.net/skating/skating.m3u8"
+                                type="application/x-mpegURL">
+                    </video-js>
+                    <p>
+                        <b>Men's Team Pursuit - Semi-Finals</b>
+                        <br><br>
+                        Highlights from the Adler Arena of the Men's Speed Skating Team Pursuit semi-finals
+                    </p>
+                </section>
+            </div>
+        </section>
+    </article>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a class="icon brands fa-twitter" href="#"><span class="label">Twitter</span></a></li>
+            <li><a class="icon brands fa-facebook-f" href="#"><span class="label">Facebook</span></a></li>
+            <li><a class="icon brands fa-instagram" href="#"><span class="label">Instagram</span></a></li>
+            <li><a class="icon brands fa-dribbble" href="#"><span class="label">Dribbble</span></a></li>
+            <li><a class="icon solid fa-envelope" href="#"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Copyright 2020</li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
+
+</div>
+
+
+<!-- Scripts -->
+<script src="rest-functions.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/video.js/dist/video.js"></script>
+<script src="https://unpkg.com/@videojs/http-streaming/dist/videojs-http-streaming.js"></script>
+
+</body>
+
+<script>
+    const swimming_player = videojs('swimming');
+    const curling_player = videojs('curling');
+    const skating_player = videojs('skating');
+</script>
+</html>

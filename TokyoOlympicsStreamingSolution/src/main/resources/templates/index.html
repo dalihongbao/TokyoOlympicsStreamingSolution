@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+
+
+<!--
+
+
+
+          @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+          @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+          @@@@@    *@@@@#    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.   .@@@@%    @@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+          @@@@@    ,@@@@#    @@@@@@@@@@@@@@@@@@@@@@@@&&&&&&@.    @@@@%    @@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+          @@@@@    ,@@@@#    @@@@@@@@@@@@@@@@@@@@@@@@      &.    @@@@%    @@@@@@@@@@@@@@@@@@@@@@@@@@@@#
+              @@@@@@    @@@@@     @@@@@@@@@@@@@@@@@@@      &@@@@@    &@@@@     @@@@@@@@@@@@@@@@@@@
+              @@@@@@    @@@@@     @@@@@@@@@@@@@@@@@@@      &@@@@@    &@@@@     @@@@@@@@@@@@@@@@@@@
+                   @@@@@/    @@@@@    @@@@@@@@@@.               @@@@@(    @@@@@    *@@@@@@@@@%
+                   @@@@@/    @@@@@    @@@@@@@@@@.               @@@@@(    @@@@@    *@@@@@@@@@%
+                       @@@@@@@@@@@@@@@@@@@@@                        %@@@@@@@@@@@@@@@@@@@@
+                       @@@@@@@@@@@@@@@@@@@@@                        %@@@@@@@@@@@@@@@@@@@@
+
+
+
+
+-->
+
+
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>2020 Olympics</title>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+    <link href="assets/css/main.css" rel="stylesheet"/>
+    <noscript>
+        <link href="assets/css/noscript.css" rel="stylesheet"/>
+    </noscript>
+</head>
+<body class="landing is-preload">
+
+<!-- Page Wrapper -->
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <header class="alt" id="header">
+        <h1><a href="/index">Tokyo 2020</a></h1>
+        <nav id="nav">
+            <ul>
+                <li class="special">
+                    <a class="menuToggle" href="#menu" th:if="${loggedIn}"><span
+                        th:text="'Hello, ' + ${username} + '!'"></span></a>
+                    <a class="menuToggle" href="#menu" th:unless="${loggedIn}"><span>Menu</span></a>
+                    <div id="menu">
+                        <ul>
+                            <li><a href="/index">Home</a></li>
+                            <li><a href="/live">Live Streaming</a></li>
+                            <li><a href="/video">Video gallery</a></li>
+                            <li th:unless="${loggedIn}"><a href="/sign_up">Sign Up</a></li>
+                            <li th:unless="${loggedIn}"><a href="/login">Log In</a></li>
+                            <li th:if="${loggedIn}"><a href="/index" onclick="logout()">Log out</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <section id="banner">
+        <div class="inner">
+            <h2>Tokyo 2020</h2>
+            <p>24 JUL - 09 AUG</p>
+            <ul class="actions special">
+                <li><a class="button primary" href="/live">Stream live</a></li>
+            </ul>
+        </div>
+        <a class="more scrolly" href="#one">Learn More</a>
+    </section>
+
+    <!-- One -->
+    <section class="wrapper style1 special" id="one">
+        <div class="inner">
+            <header class="major">
+                <h2>Games of the XXXII Olympiad</h2>
+                <p>Fifty-six years after having organised the Olympic Games, the Japanese capital will be hosting a
+                    Summer edition for the second time, from 24 July to 9 August 2020. The Games in 1964 radically
+                    transformed the country. According to the organisers of the event in 2020, the Games of the XXXII
+                    Olympiad of the modern era will be “the most innovative ever organised, and will rest on three
+                    fundamental principles to transform the world: striving for your personal best (achieving your
+                    personal best); accepting one another (unity in diversity); and passing on a legacy for the future
+                    (connecting to tomorrow)”.</p>
+            </header>
+        </div>
+    </section>
+
+    <!-- Two -->
+    <section class="wrapper alt style2" id="two">
+        <section class="spotlight">
+            <div class="image"><img alt="" src="images/pic01.jpg"/></div>
+            <div class="content">
+                <h2>GET YOUR TOKYO 2020 TICKETS</h2>
+                <p>The time has come to start planning your Tokyo 2020 Olympic Games experience. Building on the release
+                    of the detailed competition schedule, it’s time to tackle the ticketing process so that you can map
+                    your adventure in Tokyo.</p>
+            </div>
+        </section>
+        <section class="spotlight">
+            <div class="image"><img alt="" src="images/pic02.jpg"/></div>
+            <div class="content">
+                <h2>Tokyo 2020 Medals</h2>
+                <p>The design of the Tokyo 2020 Olympic Games medals reflects the concept that in order to achieve
+                    glory, athletes have to strive for victory on a daily basis. The medals resemble rough stones that
+                    have been polished and which now shine, with “light” and “brilliance” their overall themes.</p>
+            </div>
+        </section>
+        <section class="spotlight">
+            <div class="image"><img alt="" src="images/pic03.jpg"/></div>
+            <div class="content">
+                <h2>Tokyo 2020 Torch Relay</h2>
+                <p>The Tokyo 2020 Olympic Torch Relay is not just for runners, but for everyone.
+                    Entrusted with hope, the Olympic flame begins its journey in Fukushima, lighting its way across
+                    Japan’s 47 prefectures.
+                    As the sacred flame and people’s hearts come together, the divine flame will burn even brighter.</p>
+            </div>
+        </section>
+    </section>
+
+    <!-- CTA -->
+    <section class="wrapper style4" id="cta">
+        <div class="inner">
+            <header>
+                <h2>Steam the Olympics Live</h2>
+                <p>Free account required for streaming</p>
+            </header>
+            <ul class="actions stacked">
+                <li><a class="button fit primary" href="/live">Stream Live</a></li>
+                <li><a class="more scrolly button fit" href="#one">Learn More</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a class="icon brands fa-twitter" href="#"><span class="label">Twitter</span></a></li>
+            <li><a class="icon brands fa-facebook-f" href="#"><span class="label">Facebook</span></a></li>
+            <li><a class="icon brands fa-instagram" href="#"><span class="label">Instagram</span></a></li>
+            <li><a class="icon brands fa-dribbble" href="#"><span class="label">Dribbble</span></a></li>
+            <li><a class="icon solid fa-envelope" href="#"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Copyright 2020</li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="rest-functions.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+</html>
